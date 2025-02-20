@@ -9,6 +9,7 @@ import store from './store'
 import i18n from '@/i18n'
 import directives from './directives'
 import dayjs from 'dayjs'
+import '@/mock' // 引入 Mock 数据
 import zhCn from 'dayjs/locale/zh-cn'
 import relativeTime from 'dayjs/plugin/relativeTime'
 dayjs.locale(zhCn)

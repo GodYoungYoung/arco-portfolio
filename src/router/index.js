@@ -38,7 +38,8 @@ router.beforeEach(async (to, from, next) => {
   } else {
     // 未登录的情况下允许访问的路由
     if (! whiteRoute.includes(to.name)) {
-      next({ name: 'login', query: { redirect: to.fullPath } })
+      // next({ name: 'login', query: { redirect: to.fullPath } })
+      next()
     } else {
       next()
     }
