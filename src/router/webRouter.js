@@ -9,6 +9,24 @@ const routes = [
     children: homePageRoutes
   },
   {
+    name: 'portfolio',
+    path: '/portfolio',
+    component: () => import('@/views/portfolio/index.vue'),
+    meta : { title: '个人作品合集' }
+  },
+  {
+    name: 'visualscreen',
+    path: '/vs/:name',
+    meta: { title: '可视化大屏' },
+    component: () => import('@/views/portfolio/vs.vue')
+  },
+  {
+    name: 'workspace',
+    path: '/ws/:name',
+    meta: { title: '个人工作台' },
+    component: () => import('@/views/portfolio/ws.vue')
+  },
+  {
     name: 'login',
     path: '/login',
     component: () => import('@/views/login.vue'),

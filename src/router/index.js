@@ -8,7 +8,7 @@ import routes from './webRouter.js'
 
 const title = import.meta.env.VITE_APP_TITLE
 const defaultRoutePath = '/'
-const whiteRoute = ['login', 'dashboard']
+const whiteRoute = ['login', 'portfolio']
 
 const router = createRouter({
   history: createWebHashHistory(),
@@ -38,8 +38,8 @@ router.beforeEach(async (to, from, next) => {
   } else {
     // 未登录的情况下允许访问的路由
     if (! whiteRoute.includes(to.name)) {
-      // next({ name: 'login', query: { redirect: to.fullPath } })
-      next()
+      next({ name: 'login', query: { redirect: to.fullPath } })
+      // next()
     } else {
       next()
     }

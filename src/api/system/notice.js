@@ -1,4 +1,5 @@
 import { request } from '@/utils/request.js'
+import axios from 'axios'
 
 /**
  * 系统公告 API JS
@@ -10,11 +11,12 @@ export default {
 	 * @returns
 	 */
 	getPageList(params = {}) {
-		return request({
-			url: '/core/notice/index',
-			method: 'get',
-			params,
-		})
+		// return request({
+		// 	url: '/core/notice/index',
+		// 	method: 'get',
+		// 	params,
+		// })
+		return axios.get('/mock/notice/index')
 	},
 
 	/**

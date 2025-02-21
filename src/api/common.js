@@ -92,10 +92,86 @@ export default {
    * 获取登录日志列表
    */
   getLoginLogList(params = {}) {
-    return request({
-      url: '/core/system/getLoginLogList',
-      method: 'get',
-      params
+    return new Promise((resolve, reject) => {
+      resolve({
+        "total": 11119,
+        "per_page": 5,
+        "current_page": 1,
+        "last_page": 2224,
+        "data": [
+            {
+                "id": 11459,
+                "username": "admin",
+                "ip": "124.89.8.136",
+                "ip_location": "陕西省-西安市:联通",
+                "os": "Windows",
+                "browser": "Chrome",
+                "status": 1,
+                "message": "登录成功",
+                "login_time": "2025-02-21 10:56:26",
+                "remark": null,
+                "create_time": "2025-02-21 10:56:27",
+                "update_time": "2025-02-21 10:56:27"
+            },
+            {
+                "id": 11458,
+                "username": "admin",
+                "ip": "183.253.120.83",
+                "ip_location": "福建省-莆田市:移动",
+                "os": "Mac",
+                "browser": "Chrome",
+                "status": 1,
+                "message": "登录成功",
+                "login_time": "2025-02-21 10:35:50",
+                "remark": null,
+                "create_time": "2025-02-21 10:35:51",
+                "update_time": "2025-02-21 10:35:51"
+            },
+            {
+                "id": 11457,
+                "username": "admin",
+                "ip": "183.253.120.83",
+                "ip_location": "福建省-莆田市:移动",
+                "os": "Mac",
+                "browser": "Chrome",
+                "status": 0,
+                "message": "账号或密码错误，请重新输入!",
+                "login_time": "2025-02-21 10:35:28",
+                "remark": null,
+                "create_time": "2025-02-21 10:35:28",
+                "update_time": "2025-02-21 10:35:28"
+            },
+            {
+                "id": 11456,
+                "username": "admin",
+                "ip": "121.29.123.47",
+                "ip_location": "河北省-石家庄市:联通",
+                "os": "Windows",
+                "browser": "Chrome",
+                "status": 1,
+                "message": "登录成功",
+                "login_time": "2025-02-21 10:18:28",
+                "remark": null,
+                "create_time": "2025-02-21 10:18:29",
+                "update_time": "2025-02-21 10:18:29"
+            },
+            {
+                "id": 11455,
+                "username": "admin",
+                "ip": "116.7.104.233",
+                "ip_location": "广东省-深圳市:电信",
+                "os": "Windows",
+                "browser": "Chrome",
+                "status": 1,
+                "message": "登录成功",
+                "login_time": "2025-02-21 10:13:17",
+                "remark": null,
+                "create_time": "2025-02-21 10:13:18",
+                "update_time": "2025-02-21 10:13:18"
+            }
+        ],
+        "has_more": true
+      })
     })
   },
 
@@ -103,10 +179,91 @@ export default {
    * 获取操作日志列表
    */
   getOperationLogList(params = {}) {
-    return request({
-      url: '/core/system/getOperationLogList',
-      method: 'get',
-      params
+    return new Promise((resolve, reject) => {
+      resolve({
+        "total": 8762,
+        "per_page": 5,
+        "current_page": 1,
+        "last_page": 1753,
+        "data": [
+            {
+                "id": 8892,
+                "username": "admin",
+                "app": "saiadmin",
+                "method": "POST",
+                "router": "\/core\/post\/export",
+                "service_name": "岗位导出",
+                "ip": "112.5.168.202",
+                "ip_location": "福建省-厦门市:移动",
+                "remark": null,
+                "created_by": 1,
+                "updated_by": 1,
+                "create_time": "2025-02-21 11:11:56",
+                "update_time": "2025-02-21 11:11:56"
+            },
+            {
+                "id": 8891,
+                "username": "admin",
+                "app": "saiadmin",
+                "method": "POST",
+                "router": "\/core\/post\/export",
+                "service_name": "岗位导出",
+                "ip": "112.5.168.202",
+                "ip_location": "福建省-厦门市:移动",
+                "remark": null,
+                "created_by": 1,
+                "updated_by": 1,
+                "create_time": "2025-02-21 11:11:52",
+                "update_time": "2025-02-21 11:11:52"
+            },
+            {
+                "id": 8890,
+                "username": "admin",
+                "app": "saiadmin",
+                "method": "POST",
+                "router": "\/core\/post\/export",
+                "service_name": "岗位导出",
+                "ip": "112.5.168.202",
+                "ip_location": "福建省-厦门市:移动",
+                "remark": null,
+                "created_by": 1,
+                "updated_by": 1,
+                "create_time": "2025-02-21 11:11:47",
+                "update_time": "2025-02-21 11:11:47"
+            },
+            {
+                "id": 8889,
+                "username": "admin",
+                "app": "saiadmin",
+                "method": "POST",
+                "router": "\/core\/post\/export",
+                "service_name": "岗位导出",
+                "ip": "112.5.168.202",
+                "ip_location": "福建省-厦门市:移动",
+                "remark": null,
+                "created_by": 1,
+                "updated_by": 1,
+                "create_time": "2025-02-21 11:11:40",
+                "update_time": "2025-02-21 11:11:40"
+            },
+            {
+                "id": 8888,
+                "username": "admin",
+                "app": "saiadmin",
+                "method": "POST",
+                "router": "\/core\/user\/updateinfo",
+                "service_name": "未知",
+                "ip": "183.253.120.83",
+                "ip_location": "福建省-莆田市:移动",
+                "remark": null,
+                "created_by": 1,
+                "updated_by": 1,
+                "create_time": "2025-02-21 10:37:08",
+                "update_time": "2025-02-21 10:37:08"
+            }
+        ],
+        "has_more": true
+      })
     })
   },
 

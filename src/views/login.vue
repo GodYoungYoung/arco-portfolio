@@ -5,6 +5,7 @@ import { useUserStore } from '@/store'
 import { useRouter, useRoute } from 'vue-router'
 import packageJson from '../../package.json'
 import { useAppStore } from '@/store'
+import axios from 'axios'
 
 const appStore = useAppStore()
 const router = useRouter()
@@ -22,11 +23,16 @@ const form = reactive(odata)
 const refreshCaptcha = () => {
   form.code = ''
   form.uuid = ''
-  loginApi.getCaptch().then((res) => {
-    if (res.code === 200) {
-      captcha.value = 'data:image/jpeg;base64,' + res.img
-      form.uuid = res.uuid
-    }
+  // loginApi.getCaptch().then((res) => {
+  //   if (res.code === 200) {
+  //     captcha.value = 'data:image/jpeg;base64,' + res.img
+  //     form.uuid = res.uuid
+  //   }
+  // })
+  axios.get('/core/captcha').then(r => {
+    const res = r.data.data
+    captcha.value = res.image
+    form.uuid = res.uuid
   })
 }
 
@@ -108,14 +114,6 @@ const handleSubmit = async ({ values, errors }) => {
               {{ $t('sys.login.loginBtn') }}
             </a-button>
           </a-form-item>
-
-          <a-divider orientation="center">{{ $t('sys.login.otherLoginType') }}</a-divider>
-          <div class="flex w-3/4 pt-2 mx-auto items-stretch justify-around">
-            <a-avatar class="other-login wechat"><icon-wechat /></a-avatar>
-            <a-avatar class="other-login alipay"><icon-alipay-circle /></a-avatar>
-            <a-avatar class="other-login qq"><icon-qq /></a-avatar>
-            <a-avatar class="other-login weibo"><icon-weibo /></a-avatar>
-          </div>
         </a-form>
       </div>
     </div>

@@ -904,7 +904,7 @@ Mock.mock('/core/captcha', 'get', () => {
   }
 })
 
-Mock.mock('/core/login', 'get', () => {
+Mock.mock('/core/login', 'post', () => {
   return {
     "code": 200,
     "message": "success",

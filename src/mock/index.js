@@ -59,3 +59,28 @@ Mock.mock('/goods/list', 'get', () => {
     data: goods.data
   };
 });
+
+Mock.mock('/mock/notice/index', 'get', () => {
+  return {
+    "total": 1,
+    "per_page": 5,
+    "current_page": 1,
+    "last_page": 1,
+    "data": [
+        {
+            "id": 1,
+            "message_id": null,
+            "title": "欢迎使用SaiAdmin",
+            "type": 1,
+            "content": "<p>saiadmin是一款基于vue3 + webman 的极速开发框架，前端开发采用JavaScript，后端采用PHP<\/p>",
+            "click_num": 0,
+            "remark": null,
+            "created_by": 1,
+            "updated_by": 1,
+            "create_time": "2024-01-20 15:55:36",
+            "update_time": "2024-01-20 15:55:36"
+        }
+    ],
+    "has_more": false
+  }
+});

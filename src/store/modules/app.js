@@ -11,7 +11,7 @@ let defaultSetting = {
   color: '#165dff',
   settingOpen: false,
   searchOpen: false,
-  ws: true,
+  ws: false,
   registerWangEditorButtonFlag: false
 }
 

@@ -6,6 +6,7 @@ import webRouter from '@/router/webRouter'
 import { isUndefined } from 'lodash'
 import { homePage } from '@/router/homePageRoutes'
 import { useAppStore, useTagStore, useDictStore } from '@/store'
+import axios from 'axios'
 
 const useUserStore = defineStore('user', {
   state: () => ({
@@ -60,7 +61,8 @@ const useUserStore = defineStore('user', {
 
     requestUserInfo() {
       return new Promise((resolve, reject) => {
-        loginApi.getInfo().then(async (response) => {
+        axios.get('/core/system/user').then(async (res) => {
+          const response = res.data
           if (!response || !response.data) {
             this.clearToken()
             await router.push({ name: 'login' })
@@ -81,11 +83,11 @@ const useUserStore = defineStore('user', {
     },
 
     login(form) {
-      return loginApi
-        .login(form)
-        .then((r) => {
+      return axios.post('/core/login')
+        .then((res) => {
+          let r = res.data
           if (r.code === 200) {
-            this.setToken(r.data.token)
+            this.setToken(r.data.access_token)
             return true
           } else {
             return false

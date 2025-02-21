@@ -1,5 +1,6 @@
 import { defineStore } from 'pinia'
 import commonApi from '@/api/common'
+import axios from 'axios'
 
 const useDictStore = defineStore('dict', {
   state: () => ({ data: undefined }),
@@ -16,8 +17,8 @@ const useDictStore = defineStore('dict', {
     },
 
     async initData() {
-      const { data } = await commonApi.dictAll()
-      this.data = data
+      const { data } = await axios.get('/core/system/dictAll')
+      this.data = data.data
     }
   }
 })
