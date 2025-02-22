@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>太阳，地球和月亮运行动画</title>
+    <style>
+        body {
+            background: #223;
+            background: url(https://gd-hbimg.huaban.com/bef9fe2ec98050abeea29db33bdf86018279a41012694c-5jfsln);
+            background-size: contain;
+            backdrop-filter: brightness(0.5);
+        }
+
+        div {
+            aspect-ratio: 1;
+        }
+
+        .container {
+            width: 80vh;
+            position: relative;
+            margin: 10vh auto;
+        }
+
+        .sun {
+            width: 30vh;
+            background: orange;
+            border-radius: 50%;
+            background: url(https://gd-hbimg.huaban.com/47e7d7adc070194982c3342d594a6082c314524d87f9e-Kcsy7P);
+            background-size: contain;
+            background-position: center;
+            /* box-shadow: 0 0 5vh lightgoldenrodyellow; */
+            position: absolute;
+            top: 25vh;
+            left: 25vh;
+        }
+
+        .globe.earth {
+            background: dodgerblue;
+            background: url(https://gd-hbimg.huaban.com/49cd914d6bd00c516b6f3f3be50468a51348dcf69da11a-4lPaCU);
+            background-size: contain;
+            width: 6vh;
+            right: 5.6vh;
+            top: 5.6vh;
+        }
+
+        .globe.moon {
+            width: 2.4vh;
+            background: lightgray;
+            background: url(https://gd-hbimg.huaban.com/00a601c4aef207586b313f9c00929f40f4a138d7bce6a-zX7bSP);
+            background-size: contain;
+            right: 0.4vh;
+            top: 1.6vh;
+        }
+
+        .globe {
+            border-radius: 50%;
+            position: absolute;
+        }
+
+        .orbit {
+            position: absolute;
+            border: solid;
+            border-color: white transparent transparent transparent;
+            border-radius: 50%;
+            border-width: 1px 1.6px 0 0;
+            box-sizing: border-box;
+            transform: rotate(0deg);
+            transform-origin: center;
+        }
+
+        .orbit.earth {
+            position: relative;
+            animation: orbit 36.5s linear infinite;
+            width: 60vh;
+            left: 10vh;
+            top: 10vh;
+        }
+
+        .orbit.moon {
+            animation: orbit 2.7s linear infinite;
+            width: 16vh;
+            left: -5vh;
+            top: -5vh;
+        }
+
+        @keyframes orbit {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="sun"></div>
+        <div class="orbit earth">
+            <div class="globe earth">
+                <div class="orbit moon">
+                    <div class="globe moon"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
