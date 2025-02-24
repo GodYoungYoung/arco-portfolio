@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>文字渐变下划线</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: radial-gradient(at 10% 95%, #fcc6, #bcf6, #dcf6) no-repeat;
+            height: 100vh;
+            font-family: sans-serif;
+        }
+
+        .title {
+            color: #223;
+            line-height: 2;
+            width: 400px;
+            margin: 40vh auto 0;
+        }
+
+        .title span {
+            background: linear-gradient(to right, orange, #2b6) no-repeat right bottom;
+            background-size: 0 2px;
+            transition: background-size 1s;
+        }
+
+        .title span:hover {
+            background-position-x: left;
+            background-size: 100% 2px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1 class="title">
+        <span>十年后，你会发现CSS才是你永远学不会的语言！</span>
+    </h1>
+</body>
+
+</html>

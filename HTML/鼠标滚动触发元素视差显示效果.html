@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+	<style>
+		.parallax-container {
+		height: fit-content; /* 增加滚动空间 */
+		padding: 50px;
+		}
+
+		.parallax-item {
+		width: 60vw;
+		height: 70vh;
+		margin: 10vh auto;
+		background: #1a9;
+		color: white;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		opacity: 0; /* 初始透明 */
+		transform: translateY(5vh); /* 初始向下偏移 */
+		transition: all 0.6s ease-out;
+		}
+
+		/* 触发显示时的样式 */
+		.parallax-item.active {
+		opacity: 1;
+		transform: translateY(0);
+		}
+	</style>
+</head>
+<body>
+    <div class="parallax-container">
+        <div class="parallax-item" data-speed="0.8">元素3（快速）</div>
+        <div class="parallax-item" data-speed="0.5">元素2（中速）</div>
+        <div class="parallax-item" data-speed="0.2">元素1（慢速）</div>
+    </div>
+	<script lang="text/javascript">
+		document.addEventListener('DOMContentLoaded', () => {
+  const items = document.querySelectorAll('.parallax-item');
+
+  // 监听滚动事件
+  window.addEventListener('scroll', () => {
+    items.forEach(item => {
+      const speed = parseFloat(item.dataset.speed); // 获取自定义速度
+      const itemTop = item.getBoundingClientRect().top;
+      const windowHeight = window.innerHeight;
+
+      // 当元素进入视口时触发动画
+      if (itemTop < windowHeight * 0.8) {
+        item.classList.add('active');
+        // 根据滚动位置和速度调整位移（视差核心）
+        const scrolled = window.pageYOffset;
+        item.style.transform = `translateY(${scrolled * speed * 0.1}px)`;
+      } else {
+        item.classList.remove('active');
+      }
+    });
+  });
+});
+	</script>
+</body>
+</html>
