@@ -108,8 +108,8 @@ const form = reactive({
 })
 
 const defaultColorList = reactive([
-  '#165DFF', '#F53F3F', '#F77234', '#F7BA1E', '#00B42A', '#14C9C9', '#3491FA',
-  '#722ED1', '#F5319D', '#D91AD9', '#34C759', '#43a047', '#7cb342', '#c0ca33',
+  '#165DFF', '#F53F3F', '#ff8800', '#F7BA1E', '#1dc574', '#14C9C9', '#3491FA',
+  '#722ED1', '#fd5967', '#D91AD9', '#34C759', '#00a5a0', '#7cb342', '#c0ca33',
   '#86909c', '#6d4c41',
 ])
 const changeColor = (color) => {

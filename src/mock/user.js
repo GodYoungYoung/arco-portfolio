@@ -916,3 +916,67 @@ Mock.mock('/core/login', 'post', () => {
     }
   }
 })
+
+Mock.mock('/core/dept/accessDept', 'get', () => {
+    return {
+        "code": 200,
+        "message": "success",
+        "data": [
+            {
+                "id": 1,
+                "value": 1,
+                "label": "总经办",
+                "parent_id": 0,
+                "disabled": false,
+                "children": [
+                    {
+                        "id": 2,
+                        "value": 2,
+                        "label": "销售部",
+                        "parent_id": 1,
+                        "disabled": false,
+                        "children": [
+                            {
+                                "id": 6,
+                                "value": 6,
+                                "label": "营销部",
+                                "parent_id": 2,
+                                "disabled": false
+                            },
+                            {
+                                "id": 7,
+                                "value": 7,
+                                "label": "市场部",
+                                "parent_id": 2,
+                                "disabled": false
+                            }
+                        ]
+                    },
+                    {
+                        "id": 4,
+                        "value": 4,
+                        "label": "技术部",
+                        "parent_id": 1,
+                        "disabled": false,
+                        "children": [
+                            {
+                                "id": 10,
+                                "value": 10,
+                                "label": "开发部",
+                                "parent_id": 4,
+                                "disabled": false
+                            },
+                            {
+                                "id": 11,
+                                "value": 11,
+                                "label": "售后部",
+                                "parent_id": 4,
+                                "disabled": false
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    }
+})
