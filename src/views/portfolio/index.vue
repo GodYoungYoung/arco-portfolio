@@ -8,6 +8,7 @@
       </div>
     </div>
   </div>
+  <div class="windmill"></div>
 </template>
 <script lang="ts" setup>
 import { ref, reactive, onMounted } from 'vue'
@@ -50,7 +51,7 @@ onMounted(() => {
   width: 100vw;
   height: 100vh;
   background-color: #f2f9ff;
-  // background-image: radial-gradient(at 10% 5%, #fcc6, #bcf6, #dcf6), radial-gradient(at 60% 55%, #36f6, #9cf6, #fff0, #fff0, #fff0, #fff0);
+  background-image: radial-gradient(at 10% 5%, #fcc6, #bcf6, #dcf6), radial-gradient(at 60% 55%, #36f6, #9cf6, #fff0, #fff0, #fff0, #fff0);
   .center-box {
     margin: 10vh auto;
     width: clamp(1280px, 80vw, 2400px);
@@ -69,23 +70,41 @@ onMounted(() => {
   cursor: pointer;
   .label {
     width: 8vw;
+    margin-bottom: 0.6vh;
     text-align: center;
     text-wrap: nowrap;
     font-size: 2vh;
-    margin-bottom: 0.6vh;
     &.lactive {
       color: #36f;
+      font-weight: 600;
     }
   }
   .active-bar {
+    width: 8vw;
+    height: 0.3vh;
     position: absolute;
     left: var(--left);
     transition: .5s;
     bottom: 0;
-    width: 120px;
-    height: 0.3vh;
     background: #36f;
     border-radius: 1vh;
   }
+}
+.windmill {
+  width: 5vh;
+  aspect-ratio: 1;
+  position: fixed;
+  top: 3vh;
+  right: 3vh;
+  background-image: url(../../assets/image/windmill.png);
+  background-position: center;
+  background-size: cover;
+  animation: rotating 2s linear infinite;
+  z-index: 88;
+}
+@keyframes rotating {
+  0% { transform: rotateZ(0deg); }
+  50% { transform: rotateZ(180deg); }
+  100% { transform: rotateZ(360deg); }
 }
 </style>

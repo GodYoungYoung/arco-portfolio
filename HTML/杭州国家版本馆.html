@@ -7,17 +7,22 @@
     <style>
         * {margin: 0;padding: 0;box-sizing: border-box;font-family: sans-serif;}
         .container { width: 100vw;height: 100vh;position: relative;overflow: hidden; }
-        .header { width: 100%;height: 70vh;text-align: right; font-size: 2vh;background: url(https://www.sxhm.com/Uploads/Picture/2021/11/18/s6195bf1ad80cc.jpg);
-            background-size: cover;background-repeat: no-repeat;position: relative;}
-        .header .title { color: #10121a; }
+        .header { width: 100%;height: 85vh;text-align: right; font-size: 2vh;background: url(https://www.sxhm.com/Uploads/Picture/2021/11/18/s6195bf1ad80cc.jpg);
+            background-size: cover;background-repeat: no-repeat;position: relative;z-index: 10;}
+        .header .title { color: #10121a;padding-right: 2vw;line-height: 6vh; }
         .header .title:hover { color: #35f;cursor: pointer; }
         .header .dot { opacity: 1;position: absolute;width: var(--size);aspect-ratio: 1; background: #fdac;filter: blur(1.2vh);animation: fade 4s forwards;
             top:var(--top);left:var(--left); animation-delay: var(--delay);pointer-events: none; }
-        .footer { position: absolute;width: 100%;height: 30vh;background: #2a9;bottom: 0;color: #fff;padding: 6vh; }
+        .footer { position: absolute;width: 100%;height: 30vh;background: #2a90;bottom: 0;color: #fff;padding: 6vh;z-index: 66; }
         @keyframes fade {
             from { opacity: 1; }
             to { opacity: 0;transform: translate(2vw, -2vh); }
         }
+        .footer .wave-1 { width: 100vw;height: 35vw;position: absolute;top: -15vh;left: 0; }
+        .footer .wave-2 { width: 100vw;height: 35vw;position: absolute;top: -20vh;left: 0; }
+        .footer svg { transform: scaleY(0.8);z-index: 88; }
+        .footer .flex { display: flex;justify-content: space-evenly; align-items: center;padding-top: 12vh; }
+        .footer .flex .bane { font-size: 2vh;color: #fff;z-index: 99; }
     </style>
 </head>
 <body>
@@ -26,15 +31,23 @@
             <span class="title">其他的不重要，后面再做</span>
             <div class="dot" style="--size: 80px;--delay:1.2s;--top:3%;--left:16%;"></div>
         </div>
-        <div class="footer">Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore beatae eaque error adipisci atque nulla, animi eveniet totam est repellat voluptatem quos ad. Repellat obcaecati eos suscipit iste. Itaque, corrupti?</div>
+        <div class="footer">
+            <svg t="1740491282292" class="wave-2" viewBox="0 0 3413 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="8551" data-darkreader-inline-fill="" width="300" height="100"><path d="M5.68888885 227.555556C349.29777785-37.944889 862.89066685-37.944889 1546.41066685 227.555556 2230.04444485 493.056 2854.22933285 493.056 3419.02222185 227.555556v625.777777a170.666667 170.666667 0 0 1-170.666666 170.666667H176.35555585a170.666667 170.666667 0 0 1-170.666667-170.666667V227.555556z" fill="#449988" p-id="8552" data-darkreader-inline-fill="" style="--darkreader-inline-fill: #367a6d;"></path></svg>
+            <svg t="1740490765557" class="wave-1" viewBox="0 0 3413 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="6675" data-darkreader-inline-fill="" width="300" height="100"><path d="M-194.53471603 188.36543261C196.41584212-113.71507371 780.77041805-113.71507371 1558.46428471 188.36543261 2336.28760546 490.44593778 3046.47130026 490.44593778 3689.08009841 188.36543261v711.99604849a194.18074112 194.18074112 0 0 1-194.18073999 194.18074112H-0.35397491a194.18074112 194.18074112 0 0 1-194.18074112-194.18074112V188.36543261z" fill="#22ccaa" p-id="6676" data-darkreader-inline-fill="" style="--darkreader-inline-fill: #1ba388;"></path></svg>
+            <div class="flex">
+                <div class="bane">版块1</div>
+                <div class="bane">版块2</div>
+                <div class="bane">板块3</div>
+            </div>
+        </div>
     </div>
     <script text="text/javascript">
         var dd = document.getElementById("dd")
-        for (let index = 0; index < 666; index++) {
+        for (let index = 0; index < 888; index++) {
             var sizen = Math.floor(50 + Math.random() * 100)
             var topn = Math.floor(Math.random() * 100)
             var leftn = Math.floor(Math.random() * 100)
-            var delayn = (Math.abs(60 - topn)+Math.abs(50 - leftn))/25
+            var delayn = (Math.abs(50 - topn)+Math.abs(50 - leftn))/25
             console.log(sizen, topn, leftn, delayn);
             
             var child = document.createElement("div")
