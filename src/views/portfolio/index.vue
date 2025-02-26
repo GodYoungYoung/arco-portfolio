@@ -1,11 +1,12 @@
 <template>
   <div class="portfolio-container">
-    <div>发现组件：{{componentNames}}</div>
+    <!-- <div>发现组件：{{componentNames}}</div> -->
     <div class="center-box">
       <div class="title-tabs">
         <div :class="{label:true, lactive: pi==activePanelIndex}" v-for="p, pi in panelList" :key="p.name" @click="handleActive(p, pi)">{{ p.label }}</div>
         <div class="active-bar" :style="`--left:${activePanelIndex * 10}vw`"></div>
       </div>
+      <List1 v-if="activePanelIndex == 0" />
     </div>
   </div>
   <div class="windmill"></div>
@@ -13,6 +14,7 @@
 <script lang="ts" setup>
 import { ref, reactive, onMounted } from 'vue'
 import AsyncComponent from './components/AsyncComponent.vue'
+import List1 from './components/List1.vue';
 
 const modules = import.meta.glob('./visualscreen/*.vue', { eager: true })
 console.log('components:', modules);
@@ -50,10 +52,11 @@ onMounted(() => {
 .portfolio-container {
   width: 100vw;
   height: 100vh;
+  padding-top: 10vh;
   background-color: #f2f9ff;
   background-image: radial-gradient(at 10% 5%, #fcc6, #bcf6, #dcf6), radial-gradient(at 60% 55%, #36f6, #9cf6, #fff0, #fff0, #fff0, #fff0);
   .center-box {
-    margin: 10vh auto;
+    margin: 0 auto;
     width: clamp(1280px, 80vw, 2400px);
     min-height: 70vh;
     // border: 3px solid royalblue;
