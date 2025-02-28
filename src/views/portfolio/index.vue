@@ -9,7 +9,7 @@
       <List1 v-if="activePanelIndex == 0" />
     </div>
   </div>
-  <div class="windmill"></div>
+  <div class="windmill" @click="toDashboard"></div>
 </template>
 <script lang="ts" setup>
 import { ref, reactive, onMounted } from 'vue'
@@ -34,6 +34,10 @@ function handleActive(p, pi) {
   activePanelIndex.value = pi
 }
 
+function toDashboard() {
+  location.href = '#/dashboard'
+}
+
 const componentNames = ref([])
 onMounted(() => {
   // 提取组件名称列表
@@ -54,7 +58,7 @@ onMounted(() => {
   height: 100vh;
   padding-top: 10vh;
   background-color: #f2f9ff;
-  background-image: radial-gradient(at 10% 5%, #fcc6, #bcf6, #dcf6), radial-gradient(at 60% 55%, #36f6, #9cf6, #fff0, #fff0, #fff0, #fff0);
+  background-image: radial-gradient(at 10% 5%, #fcc6, #bcf6, #dcf6), radial-gradient(at 70% 65%, #36f6, #9cf3, #fff0, #fff0, #fff0);
   .center-box {
     margin: 0 auto;
     width: clamp(1280px, 80vw, 2400px);

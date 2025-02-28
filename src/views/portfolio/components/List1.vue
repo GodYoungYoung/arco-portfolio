@@ -64,7 +64,7 @@ function openLink(row) {
             text-align: center;
         }
         &:hover {
-            box-shadow: 0 0 1vh 0 #36f3;
+            box-shadow: 0 0 1vw 0 #36f6;
             img { transform: scale(1.05); }
             .label { transform: translateY(-100%); }
         }
