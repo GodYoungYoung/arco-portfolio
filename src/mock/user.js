@@ -86,7 +86,7 @@ Mock.mock('/core/system/user', 'get', () => {
                     "hidden": false,
                     "layout": true,
                     "hiddenBreadcrumb": false,
-                    "icon": "bi:person-lock"
+                    "icon": "icon-user-group"
                 },
                 "children": [
                     {
@@ -266,7 +266,7 @@ Mock.mock('/core/system/user', 'get', () => {
                     "hidden": false,
                     "layout": true,
                     "hiddenBreadcrumb": false,
-                    "icon": "bi:app-indicator"
+                    "icon": "icon-computer"
                 },
                 "children": [
                     {
@@ -366,7 +366,7 @@ Mock.mock('/core/system/user', 'get', () => {
                     "hidden": false,
                     "layout": true,
                     "hiddenBreadcrumb": false,
-                    "icon": "bi:tools"
+                    "icon": "icon-tool"
                 },
                 "children": [
                     {
@@ -482,7 +482,7 @@ Mock.mock('/core/system/user', 'get', () => {
                     "hidden": false,
                     "layout": true,
                     "hiddenBreadcrumb": false,
-                    "icon": "bi:gear"
+                    "icon": "icon-settings"
                 }
             }
         ]

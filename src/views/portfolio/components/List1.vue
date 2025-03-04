@@ -20,7 +20,7 @@ const vsList = [
     { name: 'qianse', label: '浅色', url: qianse },
     { name: 'dark', label: '深色', url: chaozhou },
     { name: 'qianse1', label: '浅色1', url: 'https://pic.rmb.bdstatic.com/bjh/240218/dump/b3be580b24c2bcc23eb60cc59c7cdd41.png' },
-    { name: 'qianse2', label: '🫠', url: '' },
+    { name: 'qianse2', label: '🫠☹', url: '' },
     { name: 'qianse3', label: '❤️', url: '' },
 ]
 function openLink(row) {
@@ -59,7 +59,7 @@ function openLink(row) {
             line-height: 4vh;
             font-size: 1.8vh;
             transition: .4s;
-            background-color: #0135;
+            background-color: #0136;
             color: #fff;
             text-align: center;
         }

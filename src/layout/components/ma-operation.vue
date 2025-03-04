@@ -19,6 +19,15 @@
         </a-button>
       </a-tooltip>
 
+      <a-tooltip :content="isDark ? '白昼模式' : '黑夜模式'">
+        <a-button :shape="'circle'" class="hidden lg:inline" @click="dark">
+          <template #icon>
+            <icon-sun-fill v-if="isDark" />
+            <icon-moon-fill v-else />
+          </template>
+        </a-button>
+      </a-tooltip>
+
       <a-trigger trigger="click">
         <a-button :shape="'circle'">
           <template #icon>
@@ -81,6 +90,8 @@ const appStore = useAppStore()
 const setting = ref(null)
 const router = useRouter()
 const isFullScreen = ref(false)
+const modeFlag = localStorage.getItem('mode') === 'dark'
+const isDark = ref(modeFlag)
 const showLogoutModal = ref(false)
 const isDev = ref(import.meta.env.DEV)
 const handleSelect = async (name) => {
@@ -111,6 +122,13 @@ const handleLogoutCancel = () => {
 const screen = () => {
   tool.screen(document.documentElement)
   isFullScreen.value = !isFullScreen.value
+}
+
+const dark = () => {
+  isDark.value = !isDark.value
+  const mode = isDark.value ? 'dark' : 'light'
+  localStorage.setItem('mode', mode)
+  appStore.toggleMode(mode)
 }
 
 if (appStore.ws) {

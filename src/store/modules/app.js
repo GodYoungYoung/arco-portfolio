@@ -43,7 +43,7 @@ const useAppStore = defineStore('app', {
     },
 
     toggleMode(dark) {
-      this.mode = dark
+      this.mode = localStorage.getItem('mode') || dark
       document.getElementsByTagName('html')[0].className = this.mode
       document.body.setAttribute('arco-theme', this.mode)
       defaultSetting.mode = this.mode

@@ -8,7 +8,7 @@
         <div class="pl-3 mt-2">
           <div class="content-block-title">{{ userStore.user.nickname || userStore.user.username }}，欢迎回来！</div>
           <div class="leading-5 mt-2">
-            <a-button type="dashed" @click="toPortfolio">PORTFOLIO&nbsp;&nbsp;<icon-forward /></a-button>
+            <a-button type="dashed" class="forward-btn" @click="toPortfolio">PORTFOLIO&nbsp;&nbsp;<icon-forward /></a-button>
           </div>
         </div>
       </div>
@@ -56,5 +56,9 @@ const donate = () => (visible.value = true)
   text-align: center;
   border-radius: 3px;
   padding: 5px 10px;
+}
+.forward-btn:hover svg {
+  margin-left: 8px;
+  transition: .3s;
 }
 </style>

@@ -115,6 +115,6 @@ defineExpose({ saTree })
   margin-left: 2px;
 }
 .slider-border {
-  border: 1px solid #ebebeb;
+  border: 1px solid var(--color-neutral-3);
 }
 </style>

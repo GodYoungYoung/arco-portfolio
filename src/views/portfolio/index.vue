@@ -25,7 +25,7 @@ const activePanelIndex = ref(0)
 const panelList = [
   {name:'dashboard', label: '可视化大屏'},
   {name:'workspace', label: '个人工作台'},
-  {name:'d3', label: '未定1'},
+  {name:'cardlist', label: '卡片列表'},
   {name:'d4', label: '未定2'},
 ]
 
@@ -57,7 +57,7 @@ onMounted(() => {
   width: 100vw;
   height: 100vh;
   padding-top: 10vh;
-  background-color: #f2f9ff;
+  background-color: var(--color-bg-2);
   background-image: radial-gradient(at 10% 5%, #fcc6, #bcf6, #dcf6), radial-gradient(at 70% 65%, #36f6, #9cf3, #fff0, #fff0, #fff0);
   .center-box {
     margin: 0 auto;
