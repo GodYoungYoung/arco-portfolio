@@ -61,6 +61,9 @@ const handleSubmit = async ({ values, errors }) => {
 </script>
 <template>
   <div class="login-container" :style="{ background: appStore.mode === 'dark' ? '#2e2e30e3' : '' }">
+    <video class="video-background" autoplay preload="auto" loop muted>
+      <source src="../assets/splinterteal.webm" type="video/webm">
+    </video>
     <h3 class="login-logo">
       <img src="/logo.png" alt="logo" />
       <span>{{ $title }}</span>
@@ -135,6 +138,14 @@ const handleSubmit = async ({ values, errors }) => {
   background: rgb(145 185 233 / 50%);
   background-size: cover;
   z-index: 3;
+  overflow: hidden;
+  .video-background {
+    position: absolute;
+    min-width: 100%;
+    min-height: 100%;
+    max-width: none;
+    opacity: .5;
+  }
 
   .login-logo {
     width: 100%;
