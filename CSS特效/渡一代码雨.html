@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>代码雨效果</title>
+  <style>
+    body {
+      background: #10121a;
+      overflow: hidden;
+    }
+  </style>
+</head>
+<body>
+  <canvas id="bg"></canvas>
+  <script type="text/javascript">
+    const cvs = document.getElementById('bg')
+    const width = window.innerWidth * devicePixelRatio, height = window.innerHeight * devicePixelRatio;
+    // 设置 canvas 尺寸为窗口尺寸
+    cvs.width = width
+    cvs.height = height
+
+    // 获取绘制上下文
+    const ctx = cvs.getContext('2d')
+    const fontSize = 20*devicePixelRatio
+
+    const columnWidth = fontSize
+    const columnNum = Math.floor(width / columnWidth)
+    const nextChars = new Array(columnNum).fill(0)
+
+    function draw() {
+      ctx.fillStyle = `#0001`
+      ctx.fillRect(0,0,width,height)
+      for (let i = 0; i < columnNum; i++) {
+        const char = getRandomChar()
+        ctx.fillStyle = getRandomColor()
+        ctx.font = `${fontSize}px "Cascadia Code"`
+        const x = columnWidth * i
+        const index = nextChars[i]
+        const y = (index + 1) * fontSize
+        ctx.fillText(char,x,y)
+        if (y>height && Math.random()>0.99) {
+          nextChars[i]=0
+        } else {
+          nextChars[i]++
+        }
+      }
+    }
+
+    function getRandomColor() {
+      const r = Math.floor(Math.random() * 256);
+      const g = Math.floor(Math.random() * 256);
+      const b = Math.floor(Math.random() * 256);
+      return `rgb(${r}, ${g}, ${b})`;
+    }
+    function getRandomChar() {
+      const code = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/"
+      return String.fromCharCode(
+        Math.floor(Math.random() * (126 - 32 + 1)) + 32
+      )
+    }
+
+    draw()
+    setInterval(() => {
+      draw()
+    }, 40);
+  </script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>纯CSS实现的动态背景</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background: #e2efde;color: #262b29; overflow: hidden;display: flex; justify-content: center;align-items: center;height: 100svh;
+    font-size: clamp(18px,2.5vw,32px); }
+    .container {
+      position: relative;width: 80%;aspect-ratio: 16/9;background-size: cover;background-image: url(./imgs/02.jpg);background-position: center center;
+      display: flex;flex-direction: column;justify-content: center;align-items: center;row-gap: 3rem;animation: hue 20s linear infinite;overflow: hidden;
+    }
+    .container > * {z-index: 3;}
+    .container::after, .container::before {
+      position: absolute;content: "";aspect-ratio: 1;inset: -100%;background-size: cover;
+      animation: spin 0s linear infinite;pointer-events: none;z-index: 1;
+    }
+    .container::before { background-image: url(./imgs/02.jpg);background-position: top center;mix-blend-mode: hard-light;animation-duration: 10s; }
+    .container::after { background-image: url(./imgs/02.jpg);background-position: bottom center;mix-blend-mode: lighten;animation-duration: 20s;
+    animation-direction: reverse; z-index: 2; }
+    @keyframes hue {
+      0% { filter: saturate(4) sepia(0.8) hue-rotate(0deg); }
+      100% { filter: saturate(4) sepia(0.8) hue-rotate(360deg); }
+    }
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>还在为动态背景而烦恼？</h1>
+    <p>看看这个仅使用HTML和CSS的解决方案</p>
+  </div>
+</body>
+</html>
