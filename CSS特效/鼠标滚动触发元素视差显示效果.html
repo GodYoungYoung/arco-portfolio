@@ -3,63 +3,77 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>鼠标滚动触发元素视差显示效果</title>
+    <title>鼠标滚动视差显示效果</title>
 	<style>
-		.parallax-container {
-		height: fit-content; /* 增加滚动空间 */
-		padding: 50px;
+		html, body {
+			margin: 0;padding: 0;height: 100vh;overflow-x: hidden;overflow-y: auto;
 		}
-
-		.parallax-item {
-		width: 60vw;
-		height: 70vh;
-		margin: 10vh auto;
-		background: #1a9;
-		color: white;
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		opacity: 0; /* 初始透明 */
-		transform: translateY(5vh); /* 初始向下偏移 */
-		transition: all 0.6s ease-out;
+		.background {
+			background-image: url(https://pic.netbian.com/uploads/allimg/241212/233906-1734017946cbbd.jpg);
+			background-size: cover;
+			background-position: 0% 0%;
+			height: 200vh;
+			box-sizing: border-box;
+			padding-top: 30vh;
+			font: 900 40vh '';
+			-webkit-background-clip: text;
+			-webkit-text-fill-color: transparent;
+			position: relative;
+			text-align: center;
+			overflow: hidden;
+			animation: moveLeft linear forwards;
+			animation-timeline: scroll();
 		}
-
-		/* 触发显示时的样式 */
-		.parallax-item.active {
-		opacity: 1;
-		transform: translateY(0);
+		@keyframes moveLeft {
+			from { background-position: 0% 0%; }
+			to { background-position: 50% 50%; }
+		}
+		.background::before {
+			content: '';
+			background-size: cover;
+			background-image: inherit;
+			background-position: 0% 0%;
+			position: absolute;
+			top: 0;
+			left: 0;
+			bottom: 0;
+			right: 0;
+			z-index: -99;
+		}
+		h1 {
+			position: absolute;
+			text-align: center;
+			width: 100%;
+			letter-spacing: 10px;
+			color: #fff;
+		}
+		h2 {
+			position: absolute;
+			letter-spacing: 2px;
+			top: 70vh;
+			width: 60%;
+			color: #fff;
+			left: 50%;
+			transform: translateX(-50%);
+			padding: 30px;
+			background-color: #0005;
 		}
 	</style>
 </head>
 <body>
-    <div class="parallax-container">
-        <div class="parallax-item" data-speed="0.8">元素3（快速）</div>
-        <div class="parallax-item" data-speed="0.5">元素2（中速）</div>
-        <div class="parallax-item" data-speed="0.2">元素1（慢速）</div>
-    </div>
-	<script lang="text/javascript">
-		document.addEventListener('DOMContentLoaded', () => {
-  const items = document.querySelectorAll('.parallax-item');
-
-  // 监听滚动事件
-  window.addEventListener('scroll', () => {
-    items.forEach(item => {
-      const speed = parseFloat(item.dataset.speed); // 获取自定义速度
-      const itemTop = item.getBoundingClientRect().top;
-      const windowHeight = window.innerHeight;
-
-      // 当元素进入视口时触发动画
-      if (itemTop < windowHeight * 0.8) {
-        item.classList.add('active');
-        // 根据滚动位置和速度调整位移（视差核心）
-        const scrolled = window.pageYOffset;
-        item.style.transform = `translateY(${scrolled * speed * 0.1}px)`;
-      } else {
-        item.classList.remove('active');
-      }
-    });
-  });
-});
-	</script>
+    <h1>可有可无的标题</h1>
+		<div class="background"><span>Goat</span></div>
+		<h2>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed iste nulla perspiciatis consequatur quia perferendis laboriosam itaque, nihil possimus, ipsam ipsum quos soluta, maiores est vero. Facere libero cum quos?</h2>
+		<!-- <script>
+			const background = document.querySelector(".background")
+			document.addEventListener('scroll', ()=> {
+				const scrollY = window.scrollY
+				if (scrollY !== 0) {
+					background.style.backgroundPosition = `calc(50% + ${scrollY}px) calc(50% + ${scrollY}px)`
+				} else  {
+					background.style.backgroundPosition = ''
+				}
+			})
+		</script> -->
 </body>
 </html>
