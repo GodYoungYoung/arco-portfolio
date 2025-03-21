@@ -23,11 +23,18 @@
         .footer svg { transform: scaleY(0.8);z-index: 88; }
         .footer .flex { display: flex;justify-content: space-evenly; align-items: center;padding-top: 12vh; }
         .footer .flex .bane { font-size: 2vh;color: #fff;z-index: 99; }
+        #mask { position: absolute;width: 100%;height: 100%;left: 0;top: 0;background-image: url("../src/assets/cloud.png");mix-blend-mode: lighten;
+            animation: magic 4s cubic-bezier(0, 0, 0.2, 1) forwards; }
+            @keyframes magic {
+                from { filter: brightness(8); }
+                to { filter: brightness(0); }
+            }
     </style>
 </head>
 <body>
     <div class="container">
         <div class="header" id="dd">
+            <div id="mask"></div>
             <span class="title">其他的不重要，后面再做</span>
             <div class="dot" style="--size: 80px;--delay:1.2s;--top:3%;--left:16%;"></div>
         </div>
@@ -42,25 +49,25 @@
         </div>
     </div>
     <script text="text/javascript">
-        var dd = document.getElementById("dd")
-        for (let index = 0; index < 888; index++) {
-            var sizen = Math.floor(50 + Math.random() * 100)
-            var topn = Math.floor(Math.random() * 100)
-            var leftn = Math.floor(Math.random() * 100)
-            var delayn = (Math.abs(50 - topn)+Math.abs(50 - leftn))/25
-            console.log(sizen, topn, leftn, delayn);
+        // var dd = document.getElementById("dd")
+        // for (let index = 0; index < 888; index++) {
+        //     var sizen = Math.floor(50 + Math.random() * 100)
+        //     var topn = Math.floor(Math.random() * 100)
+        //     var leftn = Math.floor(Math.random() * 100)
+        //     var delayn = (Math.abs(50 - topn)+Math.abs(50 - leftn))/25
+        //     console.log(sizen, topn, leftn, delayn);
             
-            var child = document.createElement("div")
-            child.className = "dot"
-            child.style = `--size: ${sizen}px;--delay:${delayn}s;--top:${topn}%;--left:${leftn}%;`
-            dd.appendChild(child)
-        }
-        setTimeout(() => {
-            var dots = document.getElementsByClassName('dot');
-            Array.from(dots).forEach(function(element) {
-                element.remove(); // 从DOM中删除元素
-            });
-        }, 12000)
+        //     var child = document.createElement("div")
+        //     child.className = "dot"
+        //     child.style = `--size: ${sizen}px;--delay:${delayn}s;--top:${topn}%;--left:${leftn}%;`
+        //     dd.appendChild(child)
+        // }
+        // setTimeout(() => {
+        //     var dots = document.getElementsByClassName('dot');
+        //     Array.from(dots).forEach(function(element) {
+        //         element.remove(); // 从DOM中删除元素
+        //     });
+        // }, 12000)
     </script>
 </body>
 </html>
