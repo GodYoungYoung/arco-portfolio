@@ -7,7 +7,7 @@
     <style>
         * {margin: 0;padding: 0;box-sizing: border-box;font-family: sans-serif;}
         .container { width: 100vw;height: 100vh;position: relative;overflow: hidden; }
-        .header { width: 100%;height: 85vh;text-align: right; font-size: 2vh;background: url(https://www.sxhm.com/Uploads/Picture/2021/11/18/s6195bf1ad80cc.jpg);
+        .header { width: 100%;height: 85vh;text-align: right; font-size: 2vh;background: url(https://gd-hbimg.huaban.com/31562f8f58045434588ec161d357e089684946ac2ec288-ZJBRqC);
             background-size: cover;background-repeat: no-repeat;position: relative;z-index: 10;}
         .header .title { color: #10121a;padding-right: 2vw;line-height: 6vh; }
         .header .title:hover { color: #35f;cursor: pointer; }
@@ -23,18 +23,20 @@
         .footer svg { transform: scaleY(0.8);z-index: 88; }
         .footer .flex { display: flex;justify-content: space-evenly; align-items: center;padding-top: 12vh; }
         .footer .flex .bane { font-size: 2vh;color: #fff;z-index: 99; }
-        #mask { position: absolute;width: 100%;height: 100%;left: 0;top: 0;background-image: url("../src/assets/cloud.png");mix-blend-mode: lighten;
-            animation: magic 4s cubic-bezier(0, 0, 0.2, 1) forwards; }
+        .map {position: absolute;width: 100%;height: 100%;background: #fdac;mix-blend-mode: multiply;}
+        #mask { width: 100%;height: 100%;left: 0;top: 0;background-image: url("../src/assets/cloud.png");mix-blend-mode: lighten;
+            animation: magic 4s ease-in both; }
             @keyframes magic {
-                from { filter: brightness(8); }
-                to { filter: brightness(0); }
+                0% { filter: brightness(0); }
+                80% { filter: brightness(4); }
+                100% { filter: brightness(12); }
             }
     </style>
 </head>
 <body>
     <div class="container">
         <div class="header" id="dd">
-            <div id="mask"></div>
+            <div class="map"><div id="mask"></div></div>
             <span class="title">其他的不重要，后面再做</span>
             <div class="dot" style="--size: 80px;--delay:1.2s;--top:3%;--left:16%;"></div>
         </div>
