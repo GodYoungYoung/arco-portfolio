@@ -1,0 +1,1 @@
+import{V as e,c as o,o as t}from"./index-oR0mlNqp.js";const _=e({name:"chaozhou",__name:"chaozhou",props:{insId:{}},setup(n){return(a,c)=>(t(),o("div",null,"chaozhou"))}}),l=Object.freeze(Object.defineProperty({__proto__:null,default:_},Symbol.toStringTag,{value:"Module"}));export{l as _};

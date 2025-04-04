@@ -41,6 +41,7 @@ export default ({ mode }) => {
 
     server: {
       host: '0.0.0.0',
+      open: true,
       port: env.VITE_APP_PORT || process.env.port,
       proxy: {
         [proxyPrefix]: {

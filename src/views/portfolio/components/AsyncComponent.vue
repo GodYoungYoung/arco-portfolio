@@ -13,7 +13,7 @@ const route = useRoute()
 console.error(route);
 
 const AsyncComp = defineAsyncComponent(() => 
-  // import('./components/statistics.vue')
+  import('../components/List1.vue')
 )
 
 </script>
